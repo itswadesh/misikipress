@@ -3,7 +3,7 @@ import type { DefaultThemeOptions } from '@vuepress/theme-default'
 import { path } from '@vuepress/utils'
 import { navbar, sidebar } from './configs'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = true // process.env.NODE_ENV === 'production'
 
 export default defineUserConfig<DefaultThemeOptions>({
   base: '/',
@@ -68,7 +68,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     // specify bundler via environment variable
     process.env.DOCS_BUNDLER ??
     // use vite in dev, use webpack in prod
-    (!isProd ? '@vuepress/webpack' : '@vuepress/vite'),
+    (isProd ? '@vuepress/webpack' : '@vuepress/vite'),
 
   themeConfig: {
     logo: '/images/hero.png',
